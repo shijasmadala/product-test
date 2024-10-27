@@ -96,35 +96,46 @@
     <TextView
         android:id="@+id/width"
         style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8dp"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/dimensions"
         app:layout_constraintTop_toBottomOf="@+id/dimensions"
         tools:text="Width: 23.17" />
+
     <TextView
         android:id="@+id/height"
         style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8dp"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/width"
-        app:layout_constraintTop_toBottomOf="@+id/width"
+        android:layout_marginStart="@dimen/_5dp"
+        app:layout_constraintStart_toEndOf="@+id/width"
+        app:layout_constraintTop_toTopOf="@+id/width"
+        app:layout_constraintEnd_toStartOf="@+id/depth"
         tools:text="Height: 23.17" />
 
     <TextView
         android:id="@+id/depth"
         style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/height"
-        app:layout_constraintTop_toBottomOf="@+id/height"
+        app:layout_constraintStart_toEndOf="@+id/height"
+        app:layout_constraintTop_toTopOf="@+id/height"
         tools:text="Depth: 23.17" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/depth"
+        tools:listitem="@layout/item_review"
+        android:layout_marginTop="@dimen/_8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,7 @@
     <string name="product">Product</string>
     <string name="search">Search</string>
     <string name="product_details">Product Details</string>
+    <string name="reviewer_name">Reviewer Name</string>
+    <string name="reviewer_mail">Reviewer Mail</string>
+    <string name="comment">Comment</string>
 </resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:id="@+id/reviewerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:textSize="@dimen/_14sp"
+        android:textColor="@color/blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:text="@string/reviewer_name" />
+
+    <TextView
+        android:id="@+id/reviewerNameContent"
+        style="?attr/textAppearanceSubtitle1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/reviewerName"
+        app:layout_constraintTop_toBottomOf="@+id/reviewerName"
+        tools:text="Nolan Gonzalez" />
+    <TextView
+        android:id="@+id/reviewerMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:text="@string/reviewer_mail"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/_14sp"
+        app:layout_constraintStart_toStartOf="@+id/reviewerNameContent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewerNameContent" />
+
+    <TextView
+        android:id="@+id/reviewerMailContent"
+        style="?attr/textAppearanceSubtitle1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/reviewerMail"
+        app:layout_constraintTop_toBottomOf="@+id/reviewerMail"
+        tools:text="nolan.gonzalez@x.dummyjson.com" />
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:text="@string/comment"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/_14sp"
+        app:layout_constraintStart_toStartOf="@+id/reviewerMailContent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewerMailContent" />
+
+    <TextView
+        android:id="@+id/commentContent"
+        style="?attr/textAppearanceSubtitle1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/comment"
+        app:layout_constraintTop_toBottomOf="@+id/comment"
+        tools:text="Very unhappy with my purchase!" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/reviewerName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/reviewerName"
+        tools:text="12-12-2024" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:background="@color/hint"
+        app:layout_constraintTop_toBottomOf="@+id/commentContent"
+        android:layout_marginTop="@dimen/_5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

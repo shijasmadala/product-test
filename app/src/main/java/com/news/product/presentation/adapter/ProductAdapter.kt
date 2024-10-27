@@ -70,7 +70,7 @@ object ProductDiffCallback : DiffUtil.ItemCallback<ProductModel>() {
         oldItem: ProductModel,
         newItem: ProductModel
     ): Boolean {
-        return oldItem.title == newItem.title
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(

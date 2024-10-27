@@ -14,6 +14,7 @@ import coil.api.load
 import com.news.product.R
 import com.news.product.databinding.FragmentProductDetailsBinding
 import com.news.product.domain.model.ProductModel
+import com.news.product.presentation.adapter.ReviewAdapter
 import com.news.product.utils.LoadingScreen
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -24,13 +25,23 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
     private lateinit var binding: FragmentProductDetailsBinding
     private val viewModel by viewModels<ProductDetailViewModel>()
     private val args by navArgs<ProductDetailsFragmentArgs>()
+    private val reviewAdapter by lazy { ReviewAdapter() }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProductDetailsBinding.bind(view)
         observeDetailsData()
-
+        setUpListeners()
         //call the detail api from initial time
         viewModel.getProductDetail(args.id ?: "")
+    }
+
+    private fun setUpListeners() {
+        binding.apply {
+            recyclerView.adapter = reviewAdapter
+            toolbar.setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
     }
 
     private fun setDataToView(product: ProductModel) {
@@ -42,13 +53,11 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
             width.text = "Width: ${product.width}"
             height.text = "Height: ${product.height}"
             depth.text = "Depth: ${product.depth}"
+            reviewAdapter.submitList(product.review)
             imageView.load(product.thumbnail) {
                 crossfade(true)
                 placeholder(R.drawable.error) // Placeholder image
                 error(R.drawable.error)
-            }
-            toolbar.setNavigationOnClickListener {
-                findNavController().navigateUp()
             }
         }
     }
