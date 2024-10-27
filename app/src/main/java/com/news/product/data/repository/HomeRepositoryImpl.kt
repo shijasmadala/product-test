@@ -14,11 +14,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class HomeRepositoryImpl @Inject constructor(private val homeService: HomeService) : HomeRepository {
-    override suspend fun getProduct(): Flow<Resource<List<ProductModel>>> = flow{
-       emit(Resource.Loading)
+class HomeRepositoryImpl @Inject constructor(private val homeService: HomeService) :
+    HomeRepository {
+    override suspend fun getProduct(): Flow<Resource<List<ProductModel>>> = flow {
+        emit(Resource.Loading)
         homeService.getProduct().suspendOnSuccess {
-            if (!this.data.products.isNullOrEmpty()){
+            if (!this.data.products.isNullOrEmpty()) {
                 emit(Resource.Success(data.products!!.map { it!!.toProductModel() }))
             }
         }.suspendOnError {
@@ -33,11 +34,11 @@ class HomeRepositoryImpl @Inject constructor(private val homeService: HomeServic
         }.suspendOnException { emit(Resource.Error(Constants.NO_INTERNET_ERROR_MESSAGE)) }
     }
 
-    override suspend fun getProductDetails(id: String): Flow<Resource<ProductModel>> = flow{
+    override suspend fun getProductDetails(id: String): Flow<Resource<ProductModel>> = flow {
         emit(Resource.Loading)
         homeService.getProductDetails(id).suspendOnSuccess {
             val response = this.data
-            if (response != null){
+            if (response != null) {
                 emit(Resource.Success(response.toProductModel()))
             } else emit(Resource.Error("Error found"))
         }.suspendOnError {

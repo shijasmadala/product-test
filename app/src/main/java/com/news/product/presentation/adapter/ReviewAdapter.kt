@@ -26,6 +26,7 @@ class ReviewAdapter() : ListAdapter<ReviewModel, RecyclerView.ViewHolder>(Review
                 reviewerMailContent.text = reviewModel.reviewerEmail
                 commentContent.text = reviewModel.comment
                 date.text = reviewModel.date
+                rating.text = reviewModel.rating.toString()
             }
         }
     }

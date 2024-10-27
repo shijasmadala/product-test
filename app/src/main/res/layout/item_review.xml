@@ -76,10 +76,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8dp"
+        android:textColor="@color/hint"
         app:layout_constraintBottom_toBottomOf="@+id/reviewerName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reviewerName"
         tools:text="12-12-2024" />
+    <TextView
+        android:id="@+id/rating"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/reviewerNameContent"
+        app:layout_constraintEnd_toStartOf="@+id/ratingStartIcon"
+        app:layout_constraintBottom_toBottomOf="@id/reviewerNameContent"
+        tools:text="7.1" />
+    <ImageView
+        android:id="@+id/ratingStartIcon"
+        android:layout_width="@dimen/_15dp"
+        android:layout_height="@dimen/_15dp"
+        android:src="@drawable/star"
+        app:layout_constraintTop_toTopOf="@+id/rating"
+        app:layout_constraintBottom_toBottomOf="@+id/rating"
+        app:layout_constraintEnd_toEndOf="@id/date"/>
 
     <View
         android:layout_width="match_parent"
